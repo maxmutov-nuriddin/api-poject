@@ -15,7 +15,7 @@ export default class ServerCard extends Component {
     try {
       const { postId } = this.props;
       const response = await request.get(
-        `https://newsapi.org/v2/top-headlines?country=&category=${postId}&apiKey=6fb34c5bff274fa084b7191b00a196a7`
+        `https://newsapi.org/v2/top-headlines?country=&category=${postId}&apiKey=9a001faea4854052b28f604730cdce0d`
       );
       const posts = response.data.articles;
       this.setState({ posts });

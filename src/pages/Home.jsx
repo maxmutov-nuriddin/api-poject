@@ -24,11 +24,11 @@ export default class Home extends Component {
 
       if (search === '') {
         response = await request.get(
-          'https://newsapi.org/v2/top-headlines?country=us&apiKey=6fb34c5bff274fa084b7191b00a196a7'
+          'https://newsapi.org/v2/top-headlines?country=us&apiKey=9a001faea4854052b28f604730cdce0d'
         );
       } else {
         response = await request.get(
-          `https://newsapi.org/v2/top-headlines?q=${search}&apiKey=6fb34c5bff274fa084b7191b00a196a7`
+          `https://newsapi.org/v2/top-headlines?q=${search}&apiKey=9a001faea4854052b28f604730cdce0d`
         );
       }
 
