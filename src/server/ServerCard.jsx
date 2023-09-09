@@ -1,15 +1,18 @@
-import  { Component } from 'react';
+import { Component } from 'react';
 import { toast } from 'react-toastify';
 
 import request from '../server/server';
 import Card from '../components/card/Card';
 import Select from '../components/select/Select';
+import SearchFilter from '../components/seacrch/SearchFilter';
 
 export default class ServerCard extends Component {
   state = {
     posts: [],
+    search: '',
     nameSort: 'all',
   };
+
 
   async getPosts() {
     try {
@@ -27,6 +30,20 @@ export default class ServerCard extends Component {
   componentDidMount() {
     this.getPosts();
   }
+
+  handleSearch = (e) => {
+    const { posts } = this.state;
+    const searchValue = e.target.value.trim().toLowerCase();
+
+    let filteredPosts = posts;
+    if (searchValue !== '') {
+      filteredPosts = posts.filter((post) =>
+        post.title.toLowerCase().includes(searchValue)
+      );
+    }
+
+    this.setState({ search: searchValue, posts: filteredPosts });
+  };
 
   handleNameSortChange = (event) => {
     this.setState({ nameSort: event.target.value }, () => {
@@ -58,10 +75,11 @@ export default class ServerCard extends Component {
   }
 
   render() {
-    const { posts, nameSort } = this.state;
+    const { posts, search, nameSort } = this.state;
 
     return (
       <div>
+        <SearchFilter search={search} handleSearch={this.handleSearch} />
         <Select handleNameSortChange={this.handleNameSortChange} nameSort={nameSort} />
         <div className='d-flex gap-5 justify-content-between flex-wrap mt-5 mb-5'>
           {posts.map((post) => (
