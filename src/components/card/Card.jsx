@@ -5,7 +5,6 @@ export default class Card extends Component {
   render() {
     let { postData } = this.props;
 
-
     return (
       <>
         <div className='box'>

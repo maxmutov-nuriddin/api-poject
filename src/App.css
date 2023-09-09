@@ -108,3 +108,18 @@ content h2 {
     transform-origin: right;
   }
 }
+
+.titles{
+  color: #50dfdb;
+}
+
+.contents{
+  padding: 10px 20px;
+  border: 1px solid #50dfdb;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  background-color: beige;
+}
